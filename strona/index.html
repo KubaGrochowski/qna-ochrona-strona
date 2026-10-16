@@ -1,4 +1,5 @@
 <title>QNA Ochrona</title>
+<link rel="preload" as="image" href="img/hero-home-bw.webp" fetchpriority="high">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +56,7 @@ p { margin: 0; }
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
 @media (max-width: 520px) { .wrap { padding-inline: 16px; } }
 
-.eyebrow { font-weight: 600; font-size: 15px; color: var(--red); text-transform: lowercase; letter-spacing: 0; }
+.eyebrow { font-weight: 600; font-size: 15px; color: var(--red); letter-spacing: 0; }
 .section-head { display: grid; gap: 14px; justify-items: center; text-align: center; max-width: 760px; margin-inline: auto; }
 .section-head h2 { font-size: clamp(34px, 5.2vw, 60px); }
 .section-head p { color: var(--muted); max-width: 60ch; }
@@ -105,7 +106,7 @@ p { margin: 0; }
 .hdr-phone .ring { position: relative; width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: var(--paper); display: grid; place-items: center; flex-shrink: 0; }
 .hdr-phone .ring svg { width: 18px; height: 18px; }
 .hdr-phone .ring::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--red); opacity: 0; }
-.hdr-phone small { display: block; font-size: 11px; line-height: 1.1; opacity: .7; text-transform: lowercase; }
+.hdr-phone small { display: block; font-size: 11px; line-height: 1.1; opacity: .7;  }
 .hdr-phone b { display: block; font: 600 16px/1.2 var(--font-body); letter-spacing: .01em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .menu-btn { display: none; width: 46px; height: 46px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,.35); background: transparent; color: inherit; cursor: pointer; align-items: center; justify-content: center; }
 .solid .menu-btn { border-color: var(--line); }
@@ -341,6 +342,9 @@ p { margin: 0; }
 .smodal-body > p { color: var(--muted); }
 .tile { cursor: pointer; }
 @media (max-width: 760px) { .smodal-panel { grid-template-columns: minmax(0, 1fr); } .smodal-media { min-height: 0; aspect-ratio: 16 / 10; } }
+
+/* Pause looping animations outside the viewport */
+.offscreen, .offscreen * { animation-play-state: paused !important; }
 /* Scroll cue */
 .scroll-cue { position: absolute; right: 24px; bottom: 34px; display: flex; flex-direction: column; align-items: center; gap: 10px; font: 500 11px/1 var(--font-mono); letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.6); writing-mode: vertical-rl; }
 .scroll-cue i { width: 1.5px; height: 64px; background: rgba(255,255,255,.2); position: relative; overflow: hidden; }
@@ -587,7 +591,7 @@ p { margin: 0; }
 .foot-logo { display: inline-flex; }
 .foot-logo img { height: 48px; width: auto; }
 .foot-grid p { color: var(--muted-dark); font-size: 14px; margin-top: 16px; max-width: 40ch; }
-.foot-grid h4 { margin: 0 0 12px; font: 600 13px/1 var(--font-body); color: var(--muted-dark); text-transform: lowercase; }
+.foot-grid h4 { margin: 0 0 12px; font: 600 13px/1 var(--font-body); color: var(--muted-dark);  }
 .foot-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .foot-links a { text-decoration: none; font-size: 15px; }
 .foot-links a:hover { color: var(--red); }
@@ -623,8 +627,8 @@ p { margin: 0; }
   <div class="wrap">
     <a class="brand" href="#start" aria-label="QNA Ochrona – strona główna">
       <span class="brand-logo">
-        <img class="logo-light" src="img/logo-white.png" alt="QNA Instalacje" width="900" height="360">
-        <img class="logo-dark" src="img/logo.png" alt="" width="900" height="360">
+        <img decoding="async" class="logo-light" src="img/logo-white.webp" alt="QNA Instalacje" width="900" height="360">
+        <img decoding="async" class="logo-dark" src="img/logo.webp" alt="" width="900" height="360">
       </span>
       <span class="brand-tag"><b>Instalacje</b><b>Energia</b><b>Serwis</b></span>
     </a>
@@ -636,7 +640,7 @@ p { margin: 0; }
     <div class="hdr-right">
       <a class="hdr-phone" href="tel:+48792683024" aria-label="Zadzwoń: 792 683 024">
         <span class="ring"><svg aria-hidden="true"><use href="#c-phone"/></svg></span>
-        <span class="txt"><small>zadzwoń</small><b>792 683 024</b></span>
+        <span class="txt"><small>Zadzwoń</small><b>792 683 024</b></span>
       </a>
       <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
@@ -647,7 +651,7 @@ p { margin: 0; }
 <!-- ============ STRONA GŁÓWNA ============ -->
 <main data-page="start" class="is-active">
   <section class="hero hero-home">
-    <div class="hero-bg" style="background-image:url('img/hero-home-bw.jpg')"></div>
+    <div class="hero-bg" style="background-image:url('img/hero-home-bw.webp')"></div>
     <div class="wrap">
       <h1 class="rise d1 split">Instalacje, które<br><em>działają</em></h1>
       <p class="hero-lead rise d2">Klimatyzacja, pompy ciepła, fotowoltaika i instalacje elektryczne. Montaż i serwis w województwach kujawsko-pomorskim i śląskim oraz w Niemczech (Erlangen).</p>
@@ -669,11 +673,11 @@ p { margin: 0; }
   <section class="section" id="o-nas">
     <div class="wrap about">
       <div class="about-media">
-        <div class="media-clip"><img src="img/zespol-lutowanie.jpg" alt="Monterzy QNA podczas lutowania rur miedzianych instalacji chłodniczej" loading="lazy" style="object-position:center 30%"></div>
+        <div class="media-clip"><img decoding="async" src="img/zespol-lutowanie.webp" alt="Monterzy QNA podczas lutowania rur miedzianych instalacji chłodniczej" loading="lazy" style="object-position:center 30%"></div>
         <div class="badge"><b><span data-count="15" data-from="0">15</span><i>+</i></b><span class="lbl">lat<br>doświadczenia</span></div>
       </div>
       <div class="about-body">
-        <span class="eyebrow">o nas</span>
+        <span class="eyebrow">O nas</span>
         <h2>Kompleksowe systemy dla domu i firmy</h2>
         <p><strong>QNA Ochrona Jakub Maciej Kuna</strong> to firma instalacyjna z Unisławia, działająca od 2010 roku. Mamy na koncie setki zrealizowanych projektów. Prowadzimy inwestycję od doboru urządzeń, przez montaż i uruchomienie, po serwis i wsparcie gwarancyjne.</p>
         <ul class="checks">
@@ -689,13 +693,13 @@ p { margin: 0; }
   <section class="section mist" id="zespol">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">poznaj nas</span>
+        <span class="eyebrow">Poznaj nas</span>
         <h2>Zespół</h2>
         <p>Dbamy o to, żeby każdy element tworzył przemyślany, dobrze wykonany system. Od pierwszych prac po finalne uruchomienie.</p>
       </div>
       <div class="team">
         <button class="member" type="button" data-person="p-kuba" aria-haspopup="dialog">
-          <span class="member-photo"><img src="img/o-nas-kuba.jpg" alt="Jakub Kuna" loading="lazy"><span class="plus" aria-hidden="true"></span></span>
+          <span class="member-photo"><img decoding="async" src="img/o-nas-kuba.webp" alt="Jakub Kuna" loading="lazy"><span class="plus" aria-hidden="true"></span></span>
           <span class="member-name">Jakub Kuna</span>
           <span class="member-role">Właściciel</span>
           <span class="member-hint">Kliknij zdjęcie, aby dowiedzieć się więcej <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></span>
@@ -713,7 +717,7 @@ p { margin: 0; }
   <section class="area" id="obszar">
     <div class="wrap area-grid">
       <div class="area-text">
-        <span class="eyebrow">obszar działania</span>
+        <span class="eyebrow">Obszar działania</span>
         <h2>Gdzie pracujemy</h2>
         <p>Siedziba firmy jest w Unisławiu. Realizujemy instalacje w dwóch województwach w Polsce i w Niemczech.</p>
         <ul class="area-list">
@@ -764,7 +768,7 @@ p { margin: 0; }
   <template id="p-kuba">
     <div data-role>Właściciel</div>
     <div data-name>Jakub Kuna</div>
-    <div data-photo><img src="img/o-nas-kuba.jpg" alt="Jakub Kuna"></div>
+    <div data-photo><img loading="lazy" decoding="async" src="img/o-nas-kuba.webp" alt="Jakub Kuna"></div>
     <div data-desc>Jakub Kuna jest właścicielem firmy QNA Ochrona.</div>
     <div data-spec="Doświadczenie">Opis doświadczenia</div>
     <div data-spec="Umiejętności">Opis umiejętności</div>
@@ -793,9 +797,9 @@ p { margin: 0; }
         <div class="btn-row rise d3"><a class="btn btn-red" href="#oferta/uslugi">Zobacz usługi <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </div>
       <div class="collage rise d2" aria-hidden="true">
-        <figure class="c1"><img src="img/fotowoltaika-grunt.jpg" alt=""></figure>
-        <figure class="c2"><img src="img/zespol-lutowanie.jpg" alt=""></figure>
-        <figure class="c3"><img src="img/magazyn-energii-2.jpg" alt=""></figure>
+        <figure class="c1"><img loading="lazy" decoding="async" data-src="img/fotowoltaika-grunt.webp" alt=""></figure>
+        <figure class="c2"><img loading="lazy" decoding="async" data-src="img/zespol-lutowanie.webp" alt=""></figure>
+        <figure class="c3"><img loading="lazy" decoding="async" data-src="img/magazyn-energii-2.webp" alt=""></figure>
       </div>
     </div>
   </section>
@@ -803,7 +807,7 @@ p { margin: 0; }
   <section class="section mist" id="uslugi">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">usługi</span>
+        <span class="eyebrow">Usługi</span>
         <h2>Czym się zajmujemy</h2>
         <p>Od pojedynczego klimatyzatora po kompletny system z pompą ciepła, fotowoltaiką i magazynem energii. Dobieramy rozwiązanie do budynku i potrzeb inwestora.</p>
       </div>
@@ -846,11 +850,11 @@ p { margin: 0; }
     <div class="wrap svc-list">
       <article class="svc" id="elektryka">
         <div class="svc-media">
-          <div class="media-clip"><img src="img/elektryka-rozdzielnica.jpg" alt="Rozdzielnica i falownik podczas montażu" loading="lazy"></div>
+          <div class="media-clip"><img decoding="async" data-src="img/elektryka-rozdzielnica.webp" alt="Rozdzielnica i falownik podczas montażu" loading="lazy"></div>
           <div class="ico-chip"><svg aria-hidden="true"><use href="#s-elec"/></svg></div>
         </div>
         <div class="svc-body">
-          <span class="eyebrow">elektryka</span>
+          <span class="eyebrow">Elektryka</span>
           <h2>Instalacje elektryczne i niskoprądowe</h2>
           <p>Instalacje siłowe, oświetleniowe i sterowania oraz systemy bezpieczeństwa: alarmy, czujniki i monitoring.</p>
           <ul class="checks">
@@ -866,11 +870,11 @@ p { margin: 0; }
 
       <article class="svc" id="klimatyzacja">
         <div class="svc-media">
-          <div class="media-clip"><img src="img/klimatyzacja.jpg" alt="Klimatyzator ścienny Rotenso po montażu" loading="lazy"></div>
+          <div class="media-clip"><img decoding="async" data-src="img/klimatyzacja.webp" alt="Klimatyzator ścienny Rotenso po montażu" loading="lazy"></div>
           <div class="ico-chip"><svg aria-hidden="true"><use href="#s-air"/></svg></div>
         </div>
         <div class="svc-body">
-          <span class="eyebrow">klimatyzacja i wentylacja</span>
+          <span class="eyebrow">Klimatyzacja i wentylacja</span>
           <h2>Klimatyzacja, wentylacja</h2>
           <p>Mamy uprawnienia do montażu urządzeń chłodniczych. Montujemy klimatyzację i rekuperację.</p>
           <ul class="checks">
@@ -885,11 +889,11 @@ p { margin: 0; }
 
       <article class="svc" id="pompy-ciepla">
         <div class="svc-media">
-          <div class="media-clip"><img src="img/pompa-ciepla-kotlownia.jpg" alt="Kotłownia z modułem pompy ciepła i zasobnikiem ciepłej wody" loading="lazy"></div>
+          <div class="media-clip"><img decoding="async" data-src="img/pompa-ciepla-kotlownia.webp" alt="Kotłownia z modułem pompy ciepła i zasobnikiem ciepłej wody" loading="lazy"></div>
           <div class="ico-chip"><svg aria-hidden="true"><use href="#s-heat"/></svg></div>
         </div>
         <div class="svc-body">
-          <span class="eyebrow">hydraulika i ogrzewanie</span>
+          <span class="eyebrow">Hydraulika i ogrzewanie</span>
           <h2>Instalacje hydrauliczne, pompy ciepła</h2>
           <p>Robimy instalacje wodne, grzewcze i gazowe. Montujemy pompy ciepła. Gdy kotłownia jest mała, proponujemy kompaktowe urządzenia typu All in One.</p>
           <ul class="checks">
@@ -904,11 +908,11 @@ p { margin: 0; }
 
       <article class="svc" id="fotowoltaika">
         <div class="svc-media">
-          <div class="media-clip"><img src="img/magazyn-energii.jpg" alt="Falowniki hybrydowe i szafa magazynu energii" loading="lazy"></div>
+          <div class="media-clip"><img decoding="async" data-src="img/magazyn-energii.webp" alt="Falowniki hybrydowe i szafa magazynu energii" loading="lazy"></div>
           <div class="ico-chip"><svg aria-hidden="true"><use href="#s-pv"/></svg></div>
         </div>
         <div class="svc-body">
-          <span class="eyebrow">energia</span>
+          <span class="eyebrow">Energia</span>
           <h2>Fotowoltaika, magazyny energii</h2>
           <p>Projektujemy i montujemy instalacje PV na dachu i na gruncie. Rozbudowujemy je o magazyn energii, falownik hybrydowy i ładowarkę do samochodu. Mamy certyfikat Akademii Deye z instalacji i konfiguracji falowników hybrydowych z magazynami.</p>
           <ul class="checks">
@@ -923,11 +927,11 @@ p { margin: 0; }
 
       <article class="svc" id="serwis">
         <div class="svc-media">
-          <div class="media-clip"><img src="img/serwis-pomp.jpg" alt="Serwisant przy jednostce zewnętrznej pompy ciepła zimą" loading="lazy"></div>
+          <div class="media-clip"><img decoding="async" data-src="img/serwis-pomp.webp" alt="Serwisant przy jednostce zewnętrznej pompy ciepła zimą" loading="lazy"></div>
           <div class="ico-chip"><svg aria-hidden="true"><use href="#s-service"/></svg></div>
         </div>
         <div class="svc-body">
-          <span class="eyebrow">serwis</span>
+          <span class="eyebrow">Serwis</span>
           <h2>Serwis pomp ciepła</h2>
           <p>Serwisujemy pompy ciepła. Przy awariach i przeglądach działa nasza linia serwisowa.</p>
           <ul class="checks">
@@ -944,7 +948,7 @@ p { margin: 0; }
     <div class="wrap">
       <div class="cta-card">
         <div class="cta-text">
-          <span class="eyebrow">wycena</span>
+          <span class="eyebrow">Wycena</span>
           <h2>Opisz inwestycję, a my ją wycenimy</h2>
         </div>
         <a class="btn btn-red btn-lg" href="#kontakt/formularz">Przejdź do formularza <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -964,9 +968,9 @@ p { margin: 0; }
         <div class="btn-row rise d3"><a class="btn btn-red" href="#kontakt/formularz">Przejdź do formularza <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </div>
       <div class="collage rise d2" aria-hidden="true">
-        <figure class="c1"><img src="img/monter-podnosnik.jpg" alt="" style="object-position:35% center"></figure>
-        <figure class="c2"><img src="img/pompa-ciepla.jpg" alt=""></figure>
-        <figure class="c3"><img src="img/serwis-pomp.jpg" alt=""></figure>
+        <figure class="c1"><img loading="lazy" decoding="async" data-src="img/monter-podnosnik.webp" alt="" style="object-position:35% center"></figure>
+        <figure class="c2"><img loading="lazy" decoding="async" data-src="img/pompa-ciepla.webp" alt=""></figure>
+        <figure class="c3"><img loading="lazy" decoding="async" data-src="img/serwis-pomp.webp" alt=""></figure>
       </div>
     </div>
   </section>
@@ -989,7 +993,7 @@ p { margin: 0; }
       </aside>
 
       <div class="form-card" id="formularz">
-        <span class="eyebrow">formularz</span>
+        <span class="eyebrow">Formularz</span>
         <h2>Zapytanie o wycenę</h2>
         <p>Opisz, czego dotyczy zapytanie.</p>
         <form class="form" id="quoteForm" novalidate>
@@ -1061,11 +1065,11 @@ p { margin: 0; }
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="foot-logo" href="#start" aria-label="QNA Ochrona – strona główna"><img src="img/logo-white.png" alt="QNA Instalacje" width="900" height="360"></a>
+        <a class="foot-logo" href="#start" aria-label="QNA Ochrona – strona główna"><img loading="lazy" decoding="async" src="img/logo-white.webp" alt="QNA Instalacje" width="900" height="360"></a>
         <p>Instalacje elektryczne, klimatyzacja, wentylacja, hydraulika, pompy ciepła, fotowoltaika i magazyny energii. Działamy w województwach kujawsko-pomorskim i śląskim oraz w Niemczech (Erlangen).</p>
       </div>
       <div>
-        <h4>strona</h4>
+        <h4>Strona</h4>
         <ul class="foot-links">
           <li><a href="#start">Strona główna</a></li>
           <li><a href="#oferta">Oferta</a></li>
@@ -1073,7 +1077,7 @@ p { margin: 0; }
         </ul>
       </div>
       <div>
-        <h4>oferta</h4>
+        <h4>Oferta</h4>
         <ul class="foot-links">
           <li><a href="#oferta/elektryka">Elektryka i niskoprądówka</a></li>
           <li><a href="#oferta/klimatyzacja">Klimatyzacja, wentylacja</a></li>
@@ -1192,6 +1196,9 @@ p { margin: 0; }
     });
   }
 
+  function loadImages(root) {
+    root.querySelectorAll('img[data-src]').forEach(function (im) { if (im.closest('.svc-source')) return; im.src = im.getAttribute('data-src'); im.removeAttribute('data-src'); });
+  }
   function readHash() {
     var h = (location.hash || '').replace(/^#/, '');
     var parts = h.split('/');
@@ -1214,6 +1221,7 @@ p { margin: 0; }
     var svcTarget = target && target.closest('.svc-source') ? target : null;
     if (svcTarget) target = null;
     var active = document.querySelector('[data-page="' + page + '"]');
+    loadImages(active);
     window.scrollTo(0, 0);
     setupReveal(active);
     active.querySelectorAll('.hero [data-count]').forEach(countUp);
@@ -1315,6 +1323,7 @@ p { margin: 0; }
     var mm = document.getElementById('smodal-media'), mb = document.getElementById('smodal-body');
     mm.innerHTML = ''; mb.innerHTML = '';
     var img = media.querySelector('img'), chip = media.querySelector('.ico-chip');
+    if (img && img.getAttribute('data-src')) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
     if (img) mm.appendChild(img); if (chip) mm.appendChild(chip);
     while (body.firstChild) mb.appendChild(body.firstChild);
     sLast = trigger || null;
@@ -1332,6 +1341,14 @@ p { margin: 0; }
   }
   smodal.addEventListener('click', function (e) { if (e.target.closest('[data-sclose]')) closeService(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeService(); });
+
+  // Pause looping animations that are not visible
+  if ('IntersectionObserver' in window) {
+    var loopIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('offscreen', !en.isIntersecting); });
+    }, { rootMargin: '100px 0px' });
+    document.querySelectorAll('.area, .ticker, .hero-home').forEach(function (el) { el.classList.add('offscreen'); loopIO.observe(el); });
+  }
 
   // Form
   var form = document.getElementById('quoteForm');
