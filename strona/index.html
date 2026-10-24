@@ -293,7 +293,8 @@ p { margin: 0; }
 /* Area map */
 .area { position: relative; background: var(--ink); color: var(--paper); padding-block: clamp(80px, 10vw, 130px); overflow: hidden; }
 .area::before { content: ""; position: absolute; width: 900px; height: 900px; right: -200px; top: 50%; transform: translateY(-50%); background: radial-gradient(closest-side, rgba(227,6,19,.12), transparent); pointer-events: none; }
-.area-grid { position: relative; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.area::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 220px; background: linear-gradient(180deg, rgba(7,7,8,0), #070708); pointer-events: none; }
+.area-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 .area-text { display: grid; gap: 22px; justify-items: start; }
 .area-text h2 { font-size: clamp(40px, 5.4vw, 72px); }
 .area-text > p { color: var(--muted-dark); max-width: 44ch; }
@@ -656,7 +657,7 @@ p { margin: 0; }
       <h1 class="rise d1 split">Instalacje, które<br><em>działają</em></h1>
       <p class="hero-lead rise d2">Klimatyzacja, pompy ciepła, fotowoltaika i instalacje elektryczne. Montaż i serwis w województwach kujawsko-pomorskim i śląskim oraz w Niemczech (Erlangen).</p>
       <div class="btn-row rise d3">
-        <a class="btn btn-red" href="#oferta">Zobacz ofertę <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-red" href="#start/uslugi-start">Zobacz ofertę <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="since rise d4" aria-label="Na rynku od 2010 roku"><span>na rynku od</span><b data-count="2010" data-from="1990">2010</b><span>roku</span></div>
     </div>
@@ -669,6 +670,48 @@ p { margin: 0; }
       <span>Instalacje elektryczne</span><span>Instalacje niskoprądowe</span><span>Klimatyzacja</span><span>Wentylacja</span><span>Instalacje hydrauliczne</span><span>Pompy ciepła</span><span>Fotowoltaika</span><span>Magazyny energii</span><span>Serwis pomp ciepła</span>
     </div>
   </div>
+
+  <section class="section mist" id="uslugi-start">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Usługi</span>
+        <h2>Czym się zajmujemy</h2>
+        <p>Od pojedynczego klimatyzatora po kompletny system z pompą ciepła, fotowoltaiką i magazynem energii. Dobieramy rozwiązanie do budynku i potrzeb inwestora.</p>
+      </div>
+      <div class="tiles">
+        <a class="tile" href="#oferta/elektryka">
+          <svg class="ico" aria-hidden="true"><use href="#s-elec"/></svg>
+          <h3>Instalacje elektryczne i niskoprądowe</h3>
+          <p>Instalacje siłowe, oświetleniowe i sterowania, pomiary, odgromówka, a także alarmy i monitoring CCTV.</p>
+          <div class="tile-foot"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+        </a>
+        <a class="tile" href="#oferta/klimatyzacja">
+          <svg class="ico" aria-hidden="true"><use href="#s-air"/></svg>
+          <h3>Klimatyzacja, wentylacja</h3>
+          <p>Dobór, montaż i sezonowy serwis klimatyzacji. Rekuperacja: centrala, kanały i regulacja.</p>
+          <div class="tile-foot"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+        </a>
+        <a class="tile" href="#oferta/pompy-ciepla">
+          <svg class="ico" aria-hidden="true"><use href="#s-heat"/></svg>
+          <h3>Instalacje hydrauliczne, pompy ciepła</h3>
+          <p>Woda, kanalizacja, c.o. i gaz. Pompy ciepła z montażem, uruchomieniem i konfiguracją.</p>
+          <div class="tile-foot"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+        </a>
+        <a class="tile" href="#oferta/fotowoltaika">
+          <svg class="ico" aria-hidden="true"><use href="#s-pv"/></svg>
+          <h3>Fotowoltaika, magazyny energii</h3>
+          <p>Instalacje PV, falowniki hybrydowe, magazyny energii i ładowarki do aut elektrycznych.</p>
+          <div class="tile-foot"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+        </a>
+        <a class="tile" href="#oferta/serwis">
+          <svg class="ico" aria-hidden="true"><use href="#s-service"/></svg>
+          <h3>Serwis pomp ciepła</h3>
+          <p>Serwis pomp ciepła i linia serwisowa przy awariach i przeglądach.</p>
+          <div class="tile-foot"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="o-nas">
     <div class="wrap about">
@@ -1243,7 +1286,7 @@ p { margin: 0; }
     if (!document.querySelector('[data-page="' + parts[0] + '"]')) return;
     e.preventDefault();
     var curPage = (document.querySelector('[data-page].is-active') || {}).getAttribute ? document.querySelector('[data-page].is-active').getAttribute('data-page') : '';
-    if (parts[0] === 'oferta' && parts[1] && curPage === 'oferta' && openService(parts[1], a)) return;
+    if (parts[0] === 'oferta' && parts[1] && openService(parts[1], a)) return;
     var svc = a.getAttribute('data-service');
     if (svc) {
       var sel = document.getElementById('f-service');
